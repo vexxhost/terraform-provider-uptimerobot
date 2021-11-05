@@ -146,8 +146,10 @@ func resourceMonitorCreate(d *schema.ResourceData, m interface{}) error {
 
 	req.IgnoreSSLErrors = d.Get("ignore_ssl_errors").(bool)
 
-	req.AlertContacts = make([]uptimerobotapi.MonitorRequestAlertContact, len(d.Get("alert_contact").([]interface{})))
-	for k, v := range d.Get("alert_contact").([]interface{}) {
+	alertContacts := d.Get("alert_contact").(*schema.Set)
+
+	req.AlertContacts = make([]uptimerobotapi.MonitorRequestAlertContact, alertContacts.Len())
+	for k, v := range alertContacts.List() {
 		req.AlertContacts[k] = uptimerobotapi.MonitorRequestAlertContact{
 			ID:         v.(map[string]interface{})["id"].(string),
 			Threshold:  v.(map[string]interface{})["threshold"].(int),

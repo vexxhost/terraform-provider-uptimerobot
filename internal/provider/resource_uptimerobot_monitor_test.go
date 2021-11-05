@@ -365,7 +365,6 @@ func TestUptimeRobotDataResourceMonitor_custom_alert_contacts(t *testing.T) {
 	})
 }
 
-
 func TestUptimeRobotDataResourceMonitor_custom_http_headers(t *testing.T) {
 	var FriendlyName = "TF Test:  custom http headers"
 	var Type = "http"
