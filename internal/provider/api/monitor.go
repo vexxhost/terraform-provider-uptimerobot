@@ -9,10 +9,11 @@ import (
 )
 
 var monitorType = map[string]int{
-	"http":    1,
-	"keyword": 2,
-	"ping":    3,
-	"port":    4,
+	"http":      1,
+	"keyword":   2,
+	"ping":      3,
+	"port":      4,
+	"heartbeat": 5,
 }
 var MonitorType = mapKeys(monitorType)
 
@@ -242,6 +243,8 @@ func (client UptimeRobotApiClient) CreateMonitor(req MonitorCreateRequest) (m Mo
 		data.Add("http_username", req.HTTPUsername)
 		data.Add("http_password", req.HTTPPassword)
 		break
+	case "heartbeat":
+		data.Del("url")
 	}
 
 	if req.IgnoreSSLErrors {

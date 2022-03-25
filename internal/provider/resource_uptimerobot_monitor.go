@@ -26,7 +26,7 @@ func resourceMonitor() *schema.Resource {
 			},
 			"url": {
 				Type:     schema.TypeString,
-				Required: true,
+				Optional: true,
 			},
 			"type": {
 				Type:         schema.TypeString,
