@@ -48,6 +48,14 @@ resource "uptimerobot_monitor" "my_cron" {
       - `imap`
       - `custom`
     - `port` - the port monitored (only if subtype is `custom` or `port`)
+* `http_method` - available for HTTP monitoring. Can be one of the following:
+  - `HEAD` (default for non-keyword)
+  - `GET` (default for keyword)
+  - `POST`
+  - `PUT`
+  - `PATCH`
+  - `DELETE`
+  - `OPTIONS`
 * `http_username` - (Optional) used for password-protected web pages (HTTP basic or digest). Available for HTTP and keyword monitoring.
 * `http_password` - (Optional) used for password-protected web pages (HTTP basic or digest). Available for HTTP and keyword monitoring.
 * `http_auth_type` - (Optional) used for password-protected web pages (HTTP basic or digest). Available for HTTP and keyword monitoring. Can be one of the following:
