@@ -682,7 +682,7 @@ func TestUptimeRobotDataResourceMonitor_heartbeat_monitor(t *testing.T) {
 					type          = "%s"
 					interval      = "%s"
 				}
-				`, FriendlyName, Type),
+				`, FriendlyName, Type, Interval),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("uptimerobot_monitor.test", "friendly_name", FriendlyName),
 					resource.TestCheckResourceAttr("uptimerobot_monitor.test", "type", Type),
