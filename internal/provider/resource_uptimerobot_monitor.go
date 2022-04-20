@@ -290,7 +290,8 @@ func updateMonitorResource(d *schema.ResourceData, m uptimerobotapi.Monitor) err
 	d.Set("keyword_type", m.KeywordType)
 	d.Set("keyword_value", m.KeywordValue)
 
-	d.Set("http_method", m.HTTPMethod)
+	// PS: There seems to be a bug in the UR api as it never returns this value
+	// d.Set("http_method", m.HTTPMethod)
 	d.Set("http_username", m.HTTPUsername)
 	d.Set("http_password", m.HTTPPassword)
 	// PS: There seems to be a bug in the UR api as it never returns this value

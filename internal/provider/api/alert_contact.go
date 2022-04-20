@@ -13,7 +13,6 @@ const page_limit = 10
 var alertContactType = map[string]int{
 	"sms":         1,
 	"e-mail":      2,
-	"email":       2,
 	"twitter":     3,
 	"twitter-dm":  3,
 	"boxcar":      4,

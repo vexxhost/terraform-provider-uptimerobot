@@ -145,7 +145,11 @@ func (client UptimeRobotApiClient) GetMonitor(id int) (m Monitor, err error) {
 			// PS: There seems to be a bug in the UR api as it never returns this value
 			m.HTTPAuthType = intToString(monitorHTTPAuthType, int(val.(float64)))
 		}
-		m.HTTPMethod = intToString(monitorHTTPMethod, int(monitor["http_method"].(float64)))
+		// TODO(mnaser): The UptimeRobot API does not return `http_method` when
+		//               the monitor type is `http`. I've sent them an email, we
+		//               should comment this out once that's fixed.
+		//
+		// m.HTTPMethod = intToString(monitorHTTPMethod, int(monitor["http_method"].(float64)))
 		m.HTTPUsername = monitor["http_username"].(string)
 		m.HTTPPassword = monitor["http_password"].(string)
 		break
@@ -154,9 +158,11 @@ func (client UptimeRobotApiClient) GetMonitor(id int) (m Monitor, err error) {
 			// PS: There seems to be a bug in the UR api as it never returns this value
 			m.HTTPAuthType = intToString(monitorHTTPAuthType, int(val.(float64)))
 		}
-		if method := monitor["http_method"]; method != nil {
-			m.HTTPMethod = intToString(monitorHTTPMethod, int(monitor["http_method"].(float64)))
-		}
+		// TODO(mnaser): The UptimeRobot API does not return `http_method` when
+		//               the monitor type is `http`. I've sent them an email, we
+		//               should comment this out once that's fixed.
+		//
+		// m.HTTPMethod = intToString(monitorHTTPMethod, int(monitor["http_method"].(float64)))
 		m.HTTPUsername = monitor["http_username"].(string)
 		m.HTTPPassword = monitor["http_password"].(string)
 		break

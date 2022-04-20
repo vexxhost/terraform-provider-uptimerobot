@@ -25,10 +25,10 @@ func TestUptimeRobotDataResourceAlertContact_email(t *testing.T) {
 					type          = "%s"
 					value         = "%s"
 				}
-				`, friendlyName, "email", email),
+				`, friendlyName, "e-mail", email),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "friendly_name", friendlyName),
-					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "type", "email"),
+					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "type", "e-mail"),
 					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "value", email),
 				),
 			},
@@ -57,10 +57,10 @@ func TestUptimeRobotDataResourceAlertContact_update_email(t *testing.T) {
 					type          = "%s"
 					value         = "%s"
 				}
-				`, friendlyName, "email", email),
+				`, friendlyName, "e-mail", email),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "friendly_name", friendlyName),
-					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "type", "email"),
+					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "type", "e-mail"),
 					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "value", email),
 				),
 			},
@@ -71,7 +71,7 @@ func TestUptimeRobotDataResourceAlertContact_update_email(t *testing.T) {
 					type          = "%s"
 					value         = "%s"
 				}
-				`, friendlyName, "email", email2),
+				`, friendlyName, "e-mail", email2),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("uptimerobot_alert_contact.test", "value", email2),
 				),
