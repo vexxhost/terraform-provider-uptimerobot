@@ -434,7 +434,7 @@ func TestUptimeRobotDataResourceMonitor_ping_monitor(t *testing.T) {
 }
 
 func TestUptimeRobotDataResourceMonitor_custom_interval(t *testing.T) {
-	var FriendlyName = "TF Test: ping monitor"
+	var FriendlyName = "TF Test: custom interval"
 	var Type = "ping"
 	var URL = "1.1.1.1"
 	var Interval = 300
