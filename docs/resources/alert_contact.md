@@ -14,7 +14,7 @@ Use this resource to create an alert contact
 resource `uptimerobot_alert_contact` `slack` {
   friendly_name = `Slack Alert`
   type          = `slack`
-  value   = `https://hooks.slack.com/services/XXXXXXX`
+  value         = `https://hooks.slack.com/services/XXXXXXX`
 }
 ```
 
@@ -26,7 +26,7 @@ resource `uptimerobot_alert_contact` `slack` {
   Possible values are the following:
 
   - `sms`
-  - `e-mail` (or `email`)
+  - `e-mail`
   - `twitter` (or `twitter-dm`)
   - `boxcar`
   - `web-hook` (or `webhook`)
