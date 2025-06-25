@@ -12,12 +12,13 @@ import (
 	"github.com/hashicorp/go-retryablehttp"
 )
 
-func New(apiKey string) UptimeRobotApiClient {
-	return UptimeRobotApiClient{apiKey}
+func New(apiKey string, retries int) UptimeRobotApiClient {
+	return UptimeRobotApiClient{apiKey, retries}
 }
 
 type UptimeRobotApiClient struct {
-	apiKey string
+	apiKey  string
+	retries int
 }
 
 func (client UptimeRobotApiClient) MakeCall(
@@ -38,7 +39,7 @@ func (client UptimeRobotApiClient) MakeCall(
 	req.Header.Add("content-type", "application/x-www-form-urlencoded")
 
 	retryClient := retryablehttp.NewClient()
-	retryClient.RetryMax = 10
+	retryClient.RetryMax = client.retries
 	standardClient := retryClient.StandardClient()
 
 	res, err := standardClient.Do(req)
