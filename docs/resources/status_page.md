@@ -15,7 +15,7 @@ resource "uptimerobot_status_page" "my_status_page" {
   friendly_name  = "My Status Page"
   custom_domain  = "status.example.com"
   password       = "WeAreAwsome"
-  sort_monitors  = "down-up-paused"
+  sort           = "down-up-paused"
   monitors       = [uptimerobot_monitor.main.id]
 }
 ```

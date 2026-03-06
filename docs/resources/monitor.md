@@ -31,15 +31,15 @@ resource "uptimerobot_monitor" "my_website" {
     - `keyword_value` - the value of the keyword.
   - *`ping`*
   - *`port`* - will also enable the following options:
-    - `sub_type` - which pre-defined port/service is monitored or if a custom port is monitored. Can be one of the following:
-      - `http`
-      - `https`
-      - `ftp`
-      - `smtp`
-      - `pop3`
-      - `imap`
-      - `custom`
-    - `port` - the port monitored (only if subtype is `custom`)
+* `sub_type` - which pre-defined port/service is monitored or if a custom port is monitored (only when `type` is `port`)
+  - `http`
+  - `https`
+  - `ftp`
+  - `smtp`
+  - `pop3`
+  - `imap`
+  - `custom`
+* `port` - the port monitored (only if `sub_type` is `custom`)
 * `http_method` - available for HTTP monitoring. Can be one of the following:
   - `HEAD` (default for non-keyword)
   - `GET` (default for keyword)
