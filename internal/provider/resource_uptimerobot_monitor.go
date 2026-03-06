@@ -26,7 +26,7 @@ func resourceMonitor() *schema.Resource {
 			},
 			"url": {
 				Type:     schema.TypeString,
-				Required: true,
+				Optional: true,
 			},
 			"type": {
 				Type:         schema.TypeString,
@@ -121,7 +121,7 @@ func resourceMonitor() *schema.Resource {
 }
 
 func resourceMonitorCreate(d *schema.ResourceData, m interface{}) error {
-	req := uptimerobotapi.MonitorCreateRequest{
+	req := uptimerobotapi.MonitorRequest{
 		FriendlyName: d.Get("friendly_name").(string),
 		URL:          d.Get("url").(string),
 		Type:         d.Get("type").(string),
@@ -205,7 +205,7 @@ func resourceMonitorUpdate(d *schema.ResourceData, m interface{}) error {
 		return err
 	}
 
-	req := uptimerobotapi.MonitorUpdateRequest{
+	req := uptimerobotapi.MonitorRequest{
 		ID:           id,
 		FriendlyName: d.Get("friendly_name").(string),
 		URL:          d.Get("url").(string),
